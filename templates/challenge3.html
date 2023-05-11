@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Matching Challenge</title>
+	<title>Riddle Challenge</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
 		body {
-			font-family: Arial, sans-serif;
+			font-family: 'Roboto Mono', monospace;
 			text-align: center;
 			padding: 20px;
 		}
 		h1 {
 			font-size: 36px;
 		}
-		table {
-			margin: 0 auto;
-			border-collapse: collapse;
-			width: 80%;
-		}
-		td {
+		input[type=text] {
 			padding: 10px;
+			border-radius: 5px;
 			border: 1px solid gray;
-			font-size: 18px;
-		}
-		td:hover {
-			background-color: #f2f2f2;
-			cursor: pointer;
-		}
-		td.selected {
-			background-color: #4CAF50;
-			color: white;
+			width: 50%;
+			margin-bottom: 20px;
 		}
 		input[type=submit] {
 			padding: 10px 20px;
@@ -53,60 +49,53 @@
 	</style>
 </head>
 <body>
-	<h1>Matching Challenge</h1>
-	<p>Match the following technologies with their corresponding descriptions:</p>
-	<table>
-		<tr>
-			<td class="option">Python</td>
-			<td class="option">JavaScript</td>
-			<td class="option">HTML</td>
-			<td class="option">CSS</td>
-			<td class="option">Java</td>
-		</tr>
-		<tr>
-			<td class="description">A popular high-level programming language known for its simplicity and ease of use</td>
-			<td class="description">A client-side scripting language used for creating interactive web pages</td>
-			<td class="description">A markup language used for creating web pages and web applications</td>
-			<td class="description">A style sheet language used for describing the presentation of a document written in HTML</td>
-			<td class="description">A popular object-oriented programming language used for creating desktop and mobile applications</td>
-		</tr>
-	</table>
-	<form action="/challenge3-validator" method="post">
-		<input type="hidden" name="number" value="{{ number }}">
-		<input type="hidden" name="answer1" id="answer1">
-		<input type="hidden" name="answer2" id="answer2">
-		<input type="hidden" name="answer3" id="answer3">
-		<input type="submit" value="Submit">
-	</form>
-	{% if result %}
-		<p class="result">{{ result }}</p>
-	{% endif %}
-	<script>
-		var options = document.querySelectorAll('.option');
-		var descriptions = document.querySelectorAll('.description');
-		var selectedOptions = [];
-
-		options.forEach(function(option) {
-			option.addEventListener('click', function() {
-				if (selectedOptions.length < 3 && !this.classList.contains('selected')) {
-					selectedOptions.push(this);
-					this.classList.add('selected');
-				} else if (selectedOptions.includes(this)) {
-					selectedOptions.splice(selectedOptions.indexOf(this), 1);
-					this.classList.remove('selected');
-}
-});
-});
-        	document.querySelector('form').addEventListener('submit', function(event) {
-		if (selectedOptions.length < 3) {
-			event.preventDefault();
-			alert('Please select three options before submitting.');
-		} else {
-			document.querySelector('#answer1').value = selectedOptions[0].textContent;
-			document.querySelector('#answer2').value = selectedOptions[1].textContent;
-			document.querySelector('#answer3').value = selectedOptions[2].textContent;
-		}
-	});
-</script>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/i5i5rsuopeyr10cov4ovuev06cb1sxchallenges">Enigma Quest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('challenges') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('enigma_validator_render') }}">Enigma Validator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('about')}}">About Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://linktr.ee/anuj_dwivedi">Contact Dev.</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+    <h1>Riddle Challenge</h1>
+            <h2>For Position 3 - ENIGMA CODE</h2>
+            <p> CODE will be DISPLAYED BELOW IF YOU ANSWER IT RIGHT !! </p>
+{% if result %}
+	<p class="result">{{ result }}</p>
+{% endif %}
+<p>Answer the following three riddles to reveal the CODE:</p>
+<form action="/i5i5rsuopeyr10cov4ovuev06cb1sxchallenge3-validator" method="post">
+	<p>Riddle 1:</p>
+	<p>The day before two days after the day before tomorrow is SATURDAY. What day is it today?</p>
+	<input type="text" name="riddle1" placeholder="Enter your answer here">
+	<p>Riddle 2:</p>
+	<p>What is one twentieth of one half of one tenth of 10,000?</p>
+	<input type="text" name="riddle2" placeholder="Enter your answer here">
+	<p>Riddle 3:</p>
+	<p>If it were two hours later, it would be half as long until midnight as it would be if it were an hour later. What time is it now?   -  ANSWER IN FORMAT - [1-12] [a.m. or p.m.]</p>
+	<input type="text" name="riddle3" placeholder="Enter your answer here">
+	<input type="hidden" name="number" value="{{ number }}">
+	<input type="submit" value="Submit">
+</form>
 </body>
 </html>

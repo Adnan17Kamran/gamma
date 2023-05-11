@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Encryption Challenge</title>
+	<title>Riddle Challenge</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-	<style>
+    <style>
 		body {
 			font-family: 'Roboto Mono', monospace;
 			text-align: center;
@@ -78,21 +77,32 @@
 <br>
 <br>
 <br>
-<br>
-	<h1>Encryption Challenge</h1>
-        <h2>For Position 1 - ENIGMA CODE</h2>
+    {% if result %}
+		<p class="result">{{ result }} The CODE IS : {{ number }}</p>
+	{% endif %}
+	<h1>Unscramble  Ramble!</h1>
 
-    <p>IF ANSWER CORRECT CODE WILL BE DISPLAYED HERE : {{ number }}</p>
+            {% if result %}
+		<p class="result">{{ result }} The CODE IS : {{ number }}</p>
+	{% endif %}
 
-	<p>Decrypt the following message:</p>
-	<p>zhoo grqh flskhu <strong>(shifted by 3)</strong></p>
-	<form action="/i5i5rsuopeyr10cov4ovuev06cb1sxchallenge1-validator" method="post">
-		<input type="text" name="answer" placeholder="Enter your answer here">
-		<input type="hidden" name="number" value="{{ number }}">
+            <h2>For Position 6 - ENIGMA CODE</h2>
+	<p>Answer the following two riddles to reveal the word:</p>
+	<form action="/i5i5rsuopeyr10cov4ovuev06cb1sxchallenge6-validator" method="post">
+		<p>Question 1:</p>
+		<p>What is the following word when it is unscrambled?</p>
+        <p>HCPRAATEU</p>
+		<input type="text" name="question1" placeholder="Enter your answer here">
+		<p>Question 2:</p>
+		<p>What is the following scrambled word?</p>
+		<p>NNREAIVARYS</p>
+		<input type="text" name="question2" placeholder="Enter your answer here">
+		<input type="hidden" name="word" value="{{ word }}">
 		<input type="submit" value="Submit">
 	</form>
+    <p> Word will be DISPLAYED BELOW IF YOU ANSWER IT RIGHT !! </p>
 	{% if result %}
-		<p class="result">{{ result }}</p>
+		<p class="result">{{ result }} The NUMBER IS : {{ number }}</p>
 	{% endif %}
 </body>
 </html>
