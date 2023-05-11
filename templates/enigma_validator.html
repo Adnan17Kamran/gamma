@@ -2,20 +2,55 @@
 <html>
 <head>
 	<title>Enigma Code Checker</title>
-<!-- Bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<!-- jQuery -->
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<!-- Popper.js -->
+
 	<script src="https://unpkg.com/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-	<!-- Bootstrap JS -->
+
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+
 	<style>
+	    body{
+              font-family: 'Roboto Mono', monospace;
+          }
 		.valid { color: green; }
 		.invalid { color: red; }
 	</style>
 </head>
 <body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/i5i5rsuopeyr10cov4ovuev06cb1sxchallenges">Enigma Quest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('challenges') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('enigma_validator_render') }}">Enigma Validator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('about')}}">About Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://linktr.ee/anuj_dwivedi">Contact Dev.</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
 	<div class="container mt-5">
 		<h1 class="text-center">Enigma Code Checker</h1>
 		<form id="enigma-form" class="mt-5">
